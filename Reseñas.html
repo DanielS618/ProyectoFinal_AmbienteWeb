@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reseñas – Delfín Blanco</title>
+    <link rel="stylesheet" href="CSS/Reseñas.css">
+
+
+
+</head>
+
+<body>
+
+
+    <section id="review-section" class="auth-container">
+        <div class="auth-card form-card">
+
+
+            <div class="auth-header">
+                <h2 class="auth-title">Deja tu Reseña</h2>
+                <p class="auth-subtitle">Tu opinión es importante para nosotros</p>
+            </div>
+
+
+            <form id="reviewForm" class="auth-body">
+
+
+                <div class="form-row">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+                </div>
+
+
+                <div class="form-row">
+                    <label for="comentario">Comentario</label>
+                    <textarea id="comentario" rows="4" placeholder="Escribe tu opinión..." required></textarea>
+                </div>
+
+
+
+
+
+                <a href="index.html" class="btn-auth" id="btn-submit-review">
+                    <i class="fas fa-paper-plane"></i> Enviar Reseña
+                </a>
+
+
+            </form>
+
+        </div>
+    </section>
+    <script>
+        document.getElementById("btn-submit-review").addEventListener("click", function () {
+            alert("¡Gracias por tu reseña!");
+        });
+    </script>
+
+</body>
+
+</html>

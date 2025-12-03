@@ -1,0 +1,152 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: "SourceSansPro-Regular", sans-serif;
+}
+
+
+body {
+    background: linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.65)
+    ), url("../img/background\ negro.avif") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+body::before {
+    display: none;
+}
+
+
+#review-section {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 20px;
+    color: #fff;
+}
+
+#review-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+
+.review-card,
+.form-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 35px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.40);
+}
+
+.muted {
+    color: #dcdcdc;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+.form-row,
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #eaeaea;
+}
+
+
+input[type="text"],
+textarea,
+select {
+    padding: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+
+textarea {
+    resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #ccc;
+}
+
+
+select option {
+    background: #000;
+    color: #fff;
+}
+
+
+.help {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 4px;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+.btn-auth,
+.btn-submit,
+button[type="submit"] {
+    background: #bf1e2e;
+    border: none;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-auth:hover,
+.btn-submit:hover,
+button[type="submit"]:hover {
+    background: #a01926;
+}
+
+
+#review-section a {
+    color: #fff;
+}
+
+#review-section a:hover {
+    color: #bf1e2e;
+}
+
+
+@media (max-width: 520px) {
+    #review-section {
+        padding: 10px;
+    }
+}
