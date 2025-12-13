@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +10,12 @@
     <title>Restaurante Delfin Blanco | Free Bootstrap 4.3.x template</title>
 
     <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/vendors/themify-icons/css/themify-icons.css">
 
-    <link rel="stylesheet" href="assets/vendors/animate/animate.css">
+    <link rel="stylesheet" href="../assets/vendors/animate/animate.css">
 
     <!-- Bootstrap + FoodHut main styles -->
-    <link rel="stylesheet" href="assets/css/foodhut.css">
+    <link rel="stylesheet" href="../assets/css/foodhut.css">
 </head>
 
 <!-- prueba git -->
@@ -107,62 +108,62 @@
     <div class="gallary row">
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/1.jpeg" class="gallary-img">
+            <img src="../assets/img/1.jpeg" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/2.png" class="gallary-img">
+            <img src="../assets/img/2.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/3.png" class="gallary-img">
+            <img src="../assets/img/3.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/4.png" class="gallary-img">
+            <img src="../assets/img/4.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/5.png" class="gallary-img">
+            <img src="../assets/img/5.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/6.png" class="gallary-img">
+            <img src="../assets/img/6.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/7.png" class="gallary-img">
+            <img src="../assets/img/7.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/8.png" class="gallary-img">
+            <img src="../assets/img/8.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/9.png" class="gallary-img">
+            <img src="../assets/img/9.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/10.png" class="gallary-img">
+            <img src="../assets/img/10.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/11.png" class="gallary-img">
+            <img src="../assets/img/11.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="img/12.png" class="gallary-img">
+            <img src="../assets/img/12.png" class="gallary-img">
             <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
         </div>
     
@@ -309,7 +310,7 @@
         <!-- BOTONES DE RESEÑAS -->
         <div class="text-center mb-4">
 
-            <a href="Reseñas.html" class="btn btn-primary btn-lg mr-2">
+            <a href="../ModuloReseñas/Reseñas.html" class="btn btn-primary btn-lg mr-2">
                 Agregar Reseña
             </a>
 
@@ -402,23 +403,23 @@
     <!-- end of page footer -->
 
     <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="../assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="../assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
     <!-- bootstrap affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <script src="../assets/vendors/bootstrap/bootstrap.affix.js"></script>
 
     <!-- wow.js -->
-    <script src="assets/vendors/wow/wow.js"></script>
+    <script src="../assets/vendors/wow/wow.js"></script>
 
     <!-- google maps -->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
 
     <!-- FoodHut js -->
-    <script src="assets/js/foodhut.js"></script>
+    <script src="../assets/js/foodhut.js"></script>
 
-    <script src="JS/modalMenu.js"></script>
+    <script src="../assets/js/modalMenu.js"></script>
 
 </body>
 

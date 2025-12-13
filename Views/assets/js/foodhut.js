@@ -34,7 +34,7 @@ $(document).ready(function(){
 new WOW().init();
 
 function initMap() {
-    const location = { lat: 8.5389, lng: -83.3053 };  // Puerto Jiménez aproximado
+    const location = { lat: 8.5389, lng: -83.3053 };  
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: location
