@@ -61,7 +61,7 @@
             <div class="auth-footer">
                 <p class="small">
                     ¿No tienes cuenta?
-                    <a href="Registrar.html" class="auth-link">Regístrate aquí</a>
+                    <a href="Register.php" class="auth-link">Regístrate aquí</a>
                 </p>
             </div>
         </div>

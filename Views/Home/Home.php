@@ -58,7 +58,7 @@
                     <a class="nav-link" href="#contact">Contactanos</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../Login/Login.html" class="btn btn-primary ml-xl-4">Inicio Secion</a>
+                    <a href="../Login/Login.php" class="btn btn-primary ml-xl-4">Inicio Secion</a>
                 </li>
             </ul>
         </div>
