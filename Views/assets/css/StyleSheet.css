@@ -1,0 +1,298 @@
+/* =====================================================
+   RESET GENERAL
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: "SourceSansPro-Regular", sans-serif;
+}
+
+/* =====================================================
+   FONDO GENERAL
+===================================================== */
+body {
+    background: linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.65)
+    ), url("../img/background negro.avif") no-repeat center center fixed;
+    background-size: cover;
+}
+
+body::before {
+    display: none;
+}
+
+/* =====================================================
+   CONTENEDORES GENERALES
+===================================================== */
+.auth-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#registro,
+#review-section {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 20px;
+    color: #fff;
+}
+
+/* =====================================================
+   TARJETAS (LOGIN / REGISTRO / REVIEW)
+===================================================== */
+.auth-card,
+.form-card,
+.review-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 15px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.40);
+    color: #fff;
+}
+
+.auth-card {
+    width: 380px;
+    padding: 40px 35px;
+}
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+.auth-header,
+#registro-title,
+#review-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-title,
+#registro-title,
+#review-title {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.auth-subtitle {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.muted {
+    color: #dcdcdc;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+.form-row,
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #eaeaea;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+textarea,
+select {
+    padding: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+
+textarea {
+    resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #ccc;
+}
+
+select option {
+    background: #000;
+    color: #fff;
+}
+
+.help {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 4px;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* =====================================================
+   INPUTS CON ICONOS (LOGIN)
+===================================================== */
+.input-icon-wrapper {
+    position: relative;
+}
+
+.input-icon-wrapper input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+}
+
+.input-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 16px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* =====================================================
+   DISTRIBUCIÓN EN FILAS
+===================================================== */
+.row-flex {
+    display: flex;
+    gap: 15px;
+}
+
+.row-flex .form-row {
+    flex: 1;
+}
+
+/* =====================================================
+   CHECKBOX
+===================================================== */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* =====================================================
+   BARRA FUERZA CONTRASEÑA
+===================================================== */
+.password-strength {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.password-strength span {
+    display: block;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* =====================================================
+   BOTONES
+===================================================== */
+.btn-auth,
+.btn-submit,
+#btn-register,
+button[type="submit"] {
+    width: 100%;
+    padding: 12px 18px;
+    background: #bf1e2e;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-auth:hover,
+.btn-submit:hover,
+#btn-register:hover,
+button[type="submit"]:hover {
+    background: #a01926;
+}
+
+/* =====================================================
+   FOOTER AUTH
+===================================================== */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.auth-footer p {
+    color: #fff;
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #bf1e2e;
+}
+
+/* =====================================================
+   LISTAS
+===================================================== */
+#users-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 520px) {
+    .row-flex {
+        flex-direction: column;
+    }
+
+    #review-section,
+    #registro {
+        padding: 10px;
+    }
+}
