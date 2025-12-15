@@ -1,46 +1,105 @@
 <?php
+session_start();
+
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../models/User.php';
 
 $usuarioModel = new Usuario($pdo);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Acción por parámetro
+$action = $_GET['action'] ?? '';
 
-    $data = [
-        'nombre'           => trim($_POST['nombre']),
-        'correo'           => trim($_POST['correo']),
-        'telefono'         => $_POST['telefono'] ?? null,
-        'fecha_nacimiento' => $_POST['fecha_nacimiento'] ?? null,
-        'contrasena'       => $_POST['contrasena'],
-        'confirm'          => $_POST['confirm']
-    ];
+switch ($action) {
 
-    // Validaciones
-    if (empty($data['nombre']) || empty($data['correo']) || empty($data['contrasena'])) {
-        header("Location: ../Views/Login/Register.php?error=Campos obligatorios vacíos");
+    
+    case 'login': //iniciar sesión
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ../Views/Login/Login.php');
+            exit;
+        }
+
+        $correo     = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+        $contrasena = $_POST['password'];
+
+        if (empty($correo) || empty($contrasena)) {
+            header('Location: ../Views/Login/Login.php?error=Campos obligatorios');
+            exit;
+        }
+
+        $usuario = $usuarioModel->obtenerPorCorreo($correo);
+
+        if (!$usuario) {
+            header('Location: ../Views/Login/Login.php?error=Usuario no encontrado');
+            exit;
+        }
+
+        if (!password_verify($contrasena, $usuario['contrasena'])) {
+            header('Location: ../Views/Login/Login.php?error=Contraseña incorrecta');
+            exit;
+        }
+
+        $_SESSION['usuario_id']     = $usuario['id'];
+        $_SESSION['usuario_nombre'] = $usuario['nombre'];
+        $_SESSION['usuario_correo'] = $usuario['correo'];
+        $_SESSION['rol_id']         = $usuario['rol_id'];
+
+        header('Location: ../Views/Home/Home.php');
         exit;
-    }
 
-    if ($data['contrasena'] !== $data['confirm']) {
-        header("Location: ../Views/Login/Register.php?error=Las contraseñas no coinciden");
+    
+    case 'register': //registrarse
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ../Views/Login/Register.php');
+            exit;
+        }
+
+        $data = [
+            'nombre'           => trim($_POST['nombre'] ?? ''),
+            'correo'           => trim($_POST['correo'] ?? ''),
+            'telefono'         => $_POST['telefono'] ?? null,
+            'fecha_nacimiento' => $_POST['fecha_nacimiento'] ?? null,
+            'contrasena'       => $_POST['contrasena'] ?? '',
+            'confirm'          => $_POST['confirm'] ?? ''
+        ];
+
+        if (empty($data['nombre']) || empty($data['correo']) || empty($data['contrasena'])) {
+            header('Location: ../Views/Login/Register.php?error=Campos obligatorios');
+            exit;
+        }
+
+        if ($data['contrasena'] !== $data['confirm']) {
+            header('Location: ../Views/Login/Register.php?error=Contraseñas no coinciden');
+            exit;
+        }
+
+        if ($usuarioModel->correoExiste($data['correo'])) {
+            header('Location: ../Views/Login/Register.php?error=Correo ya registrado');
+            exit;
+        }
+
+        $data['contrasena'] = password_hash($data['contrasena'], PASSWORD_DEFAULT);
+
+        if ($usuarioModel->crear($data)) {
+            header('Location: ../Views/Login/Login.php?success=Registro exitoso');
+            exit;
+        }
+
+        header('Location: ../Views/Login/Register.php?error=Error al registrar');
         exit;
-    }
 
-    // Encriptar contraseña
-    $data['contrasena'] = password_hash($data['contrasena'], PASSWORD_DEFAULT);
+    
+    case 'logout': //salir
 
-    // Validar correo
-    if ($usuarioModel->correoExiste($data['correo'])) {
-        header("Location: ../Views/Login/Register.php?error=Correo ya registrado");
+        session_unset();
+        session_destroy();
+
+        header('Location: ../Views/Login/Login.php');
         exit;
-    }
 
-    // Crear usuario
-    if ($usuarioModel->crear($data)) {
-        header("Location: ../Views/Login/Login.php?success=Registro exitoso");
+    
+    default:
+        header('Location: ../Views/Login/Login.php');
         exit;
-    }
-
-    header("Location: ../Views/Login/Register.php?error=Error al registrar");
-    exit;
 }

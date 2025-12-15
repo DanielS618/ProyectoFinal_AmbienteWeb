@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,9 +27,10 @@
         <form
             id="register-form"
             method="POST"
-            action="../../controllers/AuthController.php"
+            action="../../controllers/AuthController.php?action=register"
             novalidate
         >
+
 
             <!-- Nombre -->
             <div class="form-row">
@@ -99,7 +99,7 @@
     </div>
 </section>
 
-<script src="../../assets/js/formulario.js"></script>
+<script src="../assets/js/formulario.js"></script>
 
 </body>
 </html>
