@@ -1,0 +1,192 @@
+/* admin.css */
+
+/* Mantener la imagen de fondo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0; /* Gris claro */
+    background-image: url('../img/Fondo.png'); /* Si quieres mantener la imagen de fondo */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #333; /* Gris oscuro */
+    color: #fff;
+    border-bottom: 2px solid #444;
+}
+
+/* Botón cerrar sesión */
+header .btn-danger {
+    background-color: #c0392b;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header .btn-danger:hover {
+    background-color: #e74c3c;
+}
+
+/* Main container */
+main {
+    padding: 40px;
+}
+
+/* Cards de administración */
+.admin-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.admin-card {
+    background-color: #f0f0f0; /* Gris más claro que el fondo */
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.admin-card h3 {
+    color: #2c3e50; /* Azul oscuro para títulos */
+}
+
+.admin-card p {
+    color: #555;
+}
+
+.admin-card .btn-primary {
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-card .btn-primary:hover {
+    background-color: #3498db;
+}
+
+/* Contenedor principal */
+.gestion-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Tablas */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #2980b9;
+    color: white;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+/* Botones de acción */
+.edit-btn {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.edit-btn:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    color: #c0392b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    text-decoration: underline;
+}
+
+/* Botón crear usuario */
+.btn-primary {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #3498db;
+}
+
+/* Formularios */
+.gestion-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gestion-container form label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.gestion-container form input,
+.gestion-container form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.gestion-container form button,
+.gestion-container form a.btn-secondary {
+    width: fit-content;
+}
+
+/* Botón secundario (Volver, Cancelar, etc.) */
+.btn-secondary {
+    background-color: #7f8c8d; /* Gris medio */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #95a5a6; /* Gris más claro al pasar el cursor */
+}
+

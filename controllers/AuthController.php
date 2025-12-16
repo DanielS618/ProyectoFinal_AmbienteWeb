@@ -29,22 +29,20 @@ switch ($action) {
 
         $usuario = $usuarioModel->obtenerPorCorreo($correo);
 
-        if (!$usuario) {
-            header('Location: ../Views/Login/Login.php?error=Usuario no encontrado');
-            exit;
-        }
-
-        if (!password_verify($contrasena, $usuario['contrasena'])) {
-            header('Location: ../Views/Login/Login.php?error=Contraseña incorrecta');
-            exit;
-        }
-
+        // Guardar sesión
         $_SESSION['usuario_id']     = $usuario['id'];
         $_SESSION['usuario_nombre'] = $usuario['nombre'];
         $_SESSION['usuario_correo'] = $usuario['correo'];
         $_SESSION['rol_id']         = $usuario['rol_id'];
 
-        header('Location: ../Views/Home/Home.php');
+        // REDIRECCIÓN SEGÚN ROL
+        if ($usuario['rol_id'] == 2) {
+            // Admin → Panel de administración
+            header('Location: ../Views/Admin/DashboardAdmin.php');
+        } else {
+            // Usuario normal → Home
+            header('Location: ../Views/Home/Home.php');
+        }
         exit;
 
     

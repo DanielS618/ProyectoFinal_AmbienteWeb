@@ -25,7 +25,7 @@
 
 
 <!-- Navbar -->
-    <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
+<nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,7 +44,16 @@
         </a>
 
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+
+            <?php if (isset($_SESSION["usuario_id"]) && $_SESSION["rol_id"] == 2): ?>
+                <!-- Solo para admins -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../Admin/DashboardAdmin.php">Panel Admin</a>
+                </li>
+            <?php else: ?>
+                <li class="nav-item"><a class="nav-link" href="#blog"></a></li>
+            <?php endif; ?>
+
             <li class="nav-item"><a class="nav-link" href="#testmonial">Reviews</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contactanos</a></li>
 
@@ -69,6 +78,7 @@
         </ul>
     </div>
 </nav>
+
 
     <!-- header -->
     <header id="home" class="header">
