@@ -222,57 +222,79 @@
         </div>
     </div>
 
-    <!-- REVIEWS Section  -->
-    <div id="testmonial" class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">
-        <h2 class="section-title my-5 text-center">Reseñas</h2>
+<!-- SECCIÓN DE RESEÑAS -->
+<div id="testmonial" class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">
 
-        <!-- BOTONES DE RESEÑAS -->
-        <div class="text-center mb-4">
+    <!-- Título de la sección -->
+    <h2 class="section-title my-5 text-center">Reseñas</h2>
 
-            <a href="../ModuloReseñas/Reseñas.html" class="btn btn-primary btn-lg mr-2">
-                Agregar Reseña
-            </a>
-
-            <a href="#testmonial" class="btn btn-outline-light btn-lg">
-                Ver Reseñas
-            </a>
-
-        </div>
-        
-
-        <div class="row mt-3 mb-5">
-            <div class="col-md-4 my-3 my-md-0">
-                <div class="testmonial-card">
-                    <h3 class="testmonial-title">John Doe</h3>
-                    <h6 class="testmonial-subtitle">Web Designer</h6>
-                    <div class="testmonial-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nobis eligendi, quaerat
-                            accusamus ipsum sequi dignissimos consequuntur blanditiis natus. Aperiam!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 my-3 my-md-0">
-                <div class="testmonial-card">
-                    <h3 class="testmonial-title">Steve Thomas</h3>
-                    <h6 class="testmonial-subtitle">UX/UI Designer</h6>
-                    <div class="testmonial-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum minus obcaecati cum
-                            eligendi perferendis magni dolorum ipsum magnam, sunt reiciendis natus. Aperiam!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 my-3 my-md-0">
-                <div class="testmonial-card">
-                    <h3 class="testmonial-title">Miranda Joy</h3>
-                    <h6 class="testmonial-subtitle">Graphic Designer</h6>
-                    <div class="testmonial-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, nam. Earum nobis eligendi,
-                            dignissimos consequuntur blanditiis natus. Aperiam!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- BOTONES DE ACCIÓN -->
+    <div class="text-center mb-4">
+        <!--Botón para ir a la vista donde el usuario
+            puede agregar una nueva reseña-->
+        <a href="../Reseñas/Reseña.php" class="btn btn-primary btn-lg mr-2">
+            Agregar Reseña
+        </a>
+        <!--Botón que solo baja a esta misma sección!-->
+        <a href="#testmonial" class="btn btn-outline-light btn-lg">
+            Ver Reseñas
+        </a>
     </div>
+    <!-- CONTENEDOR DE LAS RESEÑAS -->
+    <div class="row mt-3 mb-5">
+
+        <?php
+        /*Verifica si la variable $resenas existe
+            y tiene contenido.
+            Esta variable viene desde ReviewController*/
+        ?>
+        <?php if (!empty($resenas)): ?>
+
+            <?php
+            /*Recorre todas las reseñas obtenidas
+                desde la base de datos*/
+            ?>
+            <?php foreach ($resenas as $r): ?>
+
+                <!-- Cada reseña ocupa una columna -->
+                <div class="col-md-4 my-3 my-md-0">
+                    <div class="testmonial-card">
+                        <!--Nombre escrito en la reseña
+                            (campo: resenas.nombre)-->
+                        <h3 class="testmonial-title">
+                            <?php echo htmlspecialchars($r['nombre']); ?>
+                        </h3>
+
+                        <!-- Nombre del usuario que la escribió
+                            (campo: usuarios.nombre)-->
+                        <h6 class="testmonial-subtitle">
+                            <?php echo htmlspecialchars($r['nombre_usuario']); ?>
+                        </h6>
+
+                        <!--Texto de la reseña (campo: resenas.descripcion)-->
+                        <div class="testmonial-body">
+                            <p>
+                                <?php echo htmlspecialchars($r['descripcion']); ?>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            <?php endforeach; ?>
+
+        <?php else: ?>
+
+            <!-- Mensaje si aún no existen reseñas -->
+            <div class="col-12 text-center">
+                <p>No hay reseñas todavía.</p>
+            </div>
+
+        <?php endif; ?>
+
+    </div>
+</div>
+
 
 
     <!-- CONTACT Section  -->
