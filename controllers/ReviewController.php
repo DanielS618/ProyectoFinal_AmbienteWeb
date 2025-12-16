@@ -7,9 +7,10 @@
 session_start();
 
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../models/Resena.php';
+require_once __DIR__ . '/../models/ReviewModel.php';
 
-$ReviewController = new Resena($pdo);
+// Instancia del MODELO de reseñas
+$reviewModel = new ReviewModel($pdo);
 
 // Acción recibida por GET
 $action = $_GET['action'] ?? '';
@@ -21,6 +22,7 @@ switch ($action) {
     // ===============================
     case 'crear':
 
+        // Solo permitir POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: ../Views/Resenas/Resena.php');
             exit;
@@ -32,26 +34,26 @@ switch ($action) {
             exit;
         }
 
-        // Datos del formulario
-        $nombre      = trim($_POST['nombre'] ?? '');
-        $descripcion = trim($_POST['descripcion'] ?? '');
-        $usuario_id  = $_SESSION['usuario_id'];
+        // Datos del formulario (COINCIDEN con Resena.php)
+        $nombre     = trim($_POST['nombre'] ?? '');
+        $comentario = trim($_POST['comentario'] ?? '');
+        $usuario_id = $_SESSION['usuario_id'];
 
-        // Validaciones
-        if ($nombre === '' || $descripcion === '') {
+        // Validación
+        if ($nombre === '' || $comentario === '') {
             header('Location: ../Views/Resenas/Resena.php?error=Todos los campos son obligatorios');
             exit;
         }
 
-        // Arreglo para el modelo
+        // Datos que se envían al modelo
         $data = [
             'usuario_id'  => $usuario_id,
             'nombre'      => $nombre,
-            'descripcion' => $descripcion
+            'descripcion' => $comentario
         ];
 
         // Guardar reseña
-        if ($ReviewController->crear($data)) {
+        if ($reviewModel->crear($data)) {
             header('Location: ../Views/Resenas/Resena.php?success=Reseña enviada correctamente');
             exit;
         }
@@ -64,7 +66,7 @@ switch ($action) {
     // ===============================
     case 'listar':
 
-        $resenas = $ReviewController->obtenerTodas();
+        $resenas = $reviewModel->obtenerTodas();
         require_once __DIR__ . '/../Views/Resenas/ListaResenas.php';
         exit;
 

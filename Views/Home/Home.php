@@ -232,21 +232,23 @@
     <div class="text-center mb-4">
         <!--Botón para ir a la vista donde el usuario
             puede agregar una nueva reseña-->
-        <a href="../Reseñas/Reseña.php" class="btn btn-primary btn-lg mr-2">
+        <a href="../Resenas/Resena.php" class="btn btn-primary btn-lg mr-2">
             Agregar Reseña
         </a>
+
         <!--Botón que solo baja a esta misma sección!-->
         <a href="#testmonial" class="btn btn-outline-light btn-lg">
             Ver Reseñas
         </a>
     </div>
+
     <!-- CONTENEDOR DE LAS RESEÑAS -->
     <div class="row mt-3 mb-5">
 
         <?php
         /*Verifica si la variable $resenas existe
             y tiene contenido.
-            Esta variable viene desde ReviewController*/
+            Esta variable viene desde ReviewModel*/
         ?>
         <?php if (!empty($resenas)): ?>
 
@@ -259,6 +261,7 @@
                 <!-- Cada reseña ocupa una columna -->
                 <div class="col-md-4 my-3 my-md-0">
                     <div class="testmonial-card">
+
                         <!--Nombre escrito en la reseña
                             (campo: resenas.nombre)-->
                         <h3 class="testmonial-title">
@@ -294,6 +297,7 @@
 
     </div>
 </div>
+
 
 
 
