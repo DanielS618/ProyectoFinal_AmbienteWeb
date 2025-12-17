@@ -23,7 +23,7 @@ class Usuario {
             ':telefono' => $data['telefono'],
             ':fecha_nacimiento' => $data['fecha_nacimiento'],
             ':contrasena' => $data['contrasena'],
-            ':rol_id' => $data['rol_id'] ?? 2 // Rol por defecto: Usuario
+            ':rol_id' => $data['rol_id'] ?? 1 // Rol por defecto: Usuario
         ]);
     }
 

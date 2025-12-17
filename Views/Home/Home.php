@@ -1,5 +1,14 @@
 <?php session_start(); ?>
 
+<?php
+require_once '../../config/database.php';
+require_once '../../models/ReservaDisponible.php';
+
+$reservaDisponibleModel = new ReservaDisponible($pdo);
+$reservasDisponibles = $reservaDisponibleModel->obtenerDisponibles();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -208,85 +217,106 @@
     
 
     <!-- book a table Section  -->
-    <div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
-        <div class="">
-            <h2 class="section-title mb-5">Reserva una Mesa</h2>
-            <div class="row mb-5">
-                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-                    <input type="email" id="booktable" class="form-control form-control-lg custom-form-control"
-                        placeholder="EMAIL">
-                </div>
-                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-                    <input type="number" id="booktable" class="form-control form-control-lg custom-form-control"
-                        placeholder="CANTIDAD DE PERSONAS " max="20" min="0">
-                </div>
-                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-                    <input type="time" id="booktable" class="form-control form-control-lg custom-form-control"
-                        placeholder="EMAIL">
-                </div>
-                <div class="col-sm-6 col-md-3 col-xs-12 my-2">
-                    <input type="date" id="booktable" class="form-control form-control-lg custom-form-control"
-                        placeholder="12/12/12">
-                </div>
-            </div>
-            <a href="#" class="btn btn-lg btn-primary" id="rounded-btn">Encuentra una Mesa</a>
-        </div>
-    </div>
+<div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
+    <div class="container">
+        <h2 class="section-title mb-5">Reserva una Mesa</h2>
 
-<!-- SECCIÓN DE RESEÑAS -->
+        <?php if (!isset($_SESSION["usuario_id"])): ?>
+            <p class="mb-4">Inicia sesión para poder reservar una mesa</p>
+            <a href="../Login/Login.php" class="btn btn-lg btn-primary">
+                Iniciar Sesión
+            </a>
+
+        <?php elseif (empty($reservasDisponibles)): ?>
+            <p class="mb-4">No hay mesas disponibles en este momento</p>
+
+        <?php else: ?>
+            <div class="row justify-content-center">
+
+                <?php foreach ($reservasDisponibles as $reserva): ?>
+                    <div class="col-md-3 my-3">
+                        <div class="card bg-dark text-light h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">
+                                    Mesa <?= htmlspecialchars($reserva['mesa']) ?>
+                                </h5>
+
+                                <p class="mb-1">
+                                     <?= htmlspecialchars($reserva['fecha']) ?>
+                                </p>
+                                <p class="mb-1">
+                                     <?= htmlspecialchars($reserva['hora']) ?>
+                                </p>
+                                <p class="mb-3">
+                                     Capacidad: <?= htmlspecialchars($reserva['capacidad']) ?>
+                                </p>
+
+                                <a href="../../controllers/ReservaController.php?id=<?= $reserva['id'] ?>"
+                                   class="btn btn-primary btn-sm">
+                                    Reservar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+
+<!--
+=========================================
+ SECCIÓN DE RESEÑAS (COMENTADA COMPLETA)
+=========================================
+
 <div id="testmonial" class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">
 
-    <!-- Título de la sección -->
     <h2 class="section-title my-5 text-center">Reseñas</h2>
 
-    <!-- BOTONES DE ACCIÓN -->
     <div class="text-center mb-4">
+<<<<<<< Updated upstream
         <!--Botón para ir a la vista donde el usuario
             puede agregar una nueva reseña-->
         <a href="/ProyectoFinal_AmbienteWeb/Views/ModuloReseñas/Resenas.php"
            class="btn btn-primary btn-lg mr-2">
+=======
+        <a href="../Resenas/Resena.php" class="btn btn-primary btn-lg mr-2">
+>>>>>>> Stashed changes
             Agregar Reseña
         </a>
 
-        <!--Botón que solo baja a esta misma sección!-->
         <a href="#testmonial" class="btn btn-outline-light btn-lg">
             Ver Reseñas
         </a>
     </div>
 
-    <!-- CONTENEDOR DE LAS RESEÑAS -->
     <div class="row mt-3 mb-5">
 
+<<<<<<< Updated upstream
         <?php
         /*Verifica si la variable $resenas existe
             y tiene contenido.
             Esta variable viene desde ReviewController*/
         ?>
+=======
+>>>>>>> Stashed changes
         <?php if (!empty($resenas)): ?>
 
-            <?php
-            /*Recorre todas las reseñas obtenidas
-                desde la base de datos*/
-            ?>
             <?php foreach ($resenas as $r): ?>
 
-                <!-- Cada reseña ocupa una columna -->
                 <div class="col-md-4 my-3 my-md-0">
                     <div class="testmonial-card">
 
-                        <!--Nombre escrito en la reseña
-                            (campo: resenas.nombre)-->
                         <h3 class="testmonial-title">
                             <?php echo htmlspecialchars($r['nombre']); ?>
                         </h3>
 
-                        <!-- Nombre del usuario que la escribió
-                            (campo: usuarios.nombre)-->
                         <h6 class="testmonial-subtitle">
                             <?php echo htmlspecialchars($r['nombre_usuario'] ?? 'Anónimo'); ?>
                         </h6>
 
-                        <!--Texto de la reseña (campo: resenas.descripcion)-->
                         <div class="testmonial-body">
                             <p>
                                 <?php echo htmlspecialchars($r['descripcion']); ?>
@@ -300,7 +330,6 @@
 
         <?php else: ?>
 
-            <!-- Mensaje si aún no existen reseñas -->
             <div class="col-12 text-center">
                 <p>No hay reseñas todavía.</p>
             </div>
@@ -310,6 +339,18 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
+=======
+=========================================
+ FIN SECCIÓN DE RESEÑAS
+=========================================
+-->
+
+
+
+
+
+>>>>>>> Stashed changes
     <!-- CONTACT Section  -->
     <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
         <div class="row">
