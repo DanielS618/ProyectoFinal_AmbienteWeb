@@ -157,7 +157,8 @@
     <div class="text-center mb-4">
         <!--Botón para ir a la vista donde el usuario
             puede agregar una nueva reseña-->
-        <a href="../Resenas/Resena.php" class="btn btn-primary btn-lg mr-2">
+        <a href="/ProyectoFinal_AmbienteWeb/Views/ModuloReseñas/Resenas.php"
+           class="btn btn-primary btn-lg mr-2">
             Agregar Reseña
         </a>
 
@@ -173,7 +174,7 @@
         <?php
         /*Verifica si la variable $resenas existe
             y tiene contenido.
-            Esta variable viene desde ReviewModel*/
+            Esta variable viene desde ReviewController*/
         ?>
         <?php if (!empty($resenas)): ?>
 
@@ -196,7 +197,7 @@
                         <!-- Nombre del usuario que la escribió
                             (campo: usuarios.nombre)-->
                         <h6 class="testmonial-subtitle">
-                            <?php echo htmlspecialchars($r['nombre_usuario']); ?>
+                            <?php echo htmlspecialchars($r['nombre_usuario'] ?? 'Anónimo'); ?>
                         </h6>
 
                         <!--Texto de la reseña (campo: resenas.descripcion)-->
@@ -222,9 +223,6 @@
 
     </div>
 </div>
-
-
-
 
     <!-- CONTACT Section  -->
     <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">

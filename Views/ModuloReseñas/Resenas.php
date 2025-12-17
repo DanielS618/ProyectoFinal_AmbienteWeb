@@ -5,7 +5,7 @@
     <title>Reseñas – Delfín Blanco</title>
 
     <!-- Hoja de estilos principal -->
-    <link rel="stylesheet" href="../assets/css/StyleSheet.css">
+    <link rel="stylesheet" href="/ProyectoFinal_AmbienteWeb/Views/assets/css/StyleSheet.css">
 </head>
 
 <body>
@@ -35,13 +35,13 @@
         <!-- FORMULARIO DE RESEÑA -->
         <!--
             method="POST"  → envía datos al servidor
-            action         → apunta al ReviewController (MVC)
+            action         → apunta al ReviewController
         -->
         <form
             id="reviewForm"
             class="auth-body"
             method="POST"
-            action="../../controllers/ReviewController.php?action=crear"
+            action="/ProyectoFinal_AmbienteWeb/controllers/ReviewController.php?action=crear"
         >
 
             <!-- CAMPO NOMBRE -->
@@ -56,25 +56,30 @@
                 >
             </div>
 
-            <!-- CAMPO COMENTARIO -->
+            <!-- CAMPO DESCRIPCIÓN -->
+            <!-- IMPORTANTE:
+                 El name DEBE llamarse "descripcion"
+                 porque así lo espera el ReviewController -->
             <div class="form-row">
-                <label for="comentario">Comentario</label>
+                <label for="descripcion">Comentario</label>
                 <textarea
-                    id="comentario"
-                    name="comentario"
+                    id="descripcion"
+                    name="descripcion"
                     rows="4"
                     placeholder="Escribe tu opinión..."
                     required
                 ></textarea>
             </div>
 
-            <!-- BOTÓN DE ENVÍO REAL -->
+            <!-- BOTÓN DE ENVÍO -->
             <button type="submit" class="btn-auth">
                 Enviar Reseña
             </button>
 
             <!-- VOLVER AL HOME -->
-            <a href="../Home/Home.php" class="auth-link" style="margin-top:10px;">
+            <a href="/ProyectoFinal_AmbienteWeb/Views/Home/Home.php"
+               class="auth-link"
+               style="margin-top:10px;">
                 Volver al inicio
             </a>
 

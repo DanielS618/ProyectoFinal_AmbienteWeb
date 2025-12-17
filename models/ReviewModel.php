@@ -6,7 +6,7 @@ class ReviewModel {
 
     /**
      * Constructor
-     * Recibe la conexión PDO (igual que Usuario)
+     * Recibe la conexión PDO
      */
     public function __construct($pdo) {
         $this->pdo = $pdo;
@@ -35,7 +35,8 @@ class ReviewModel {
     // Obtener todas las reseñas
     // =====================================
     public function obtenerTodas() {
-//Uso de apodos a las tablas para evitar ambigüedades
+
+        // Uso de alias para evitar ambigüedades
         $sql = "SELECT r.*, u.nombre AS nombre_usuario
                 FROM resenas r
                 LEFT JOIN usuarios u ON r.usuario_id = u.id
@@ -52,7 +53,8 @@ class ReviewModel {
     // =====================================
     public function obtenerPorUsuario($usuario_id) {
 
-        $sql = "SELECT * FROM resenas
+        $sql = "SELECT *
+                FROM resenas
                 WHERE usuario_id = :usuario_id
                 ORDER BY fecha_resena DESC";
 

@@ -28,24 +28,24 @@ switch ($action) {
     // ===============================
     case 'crear':
 
-        // Solo se permite POST
+        // Solo permitir POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: ../Views/Resenas/Resena.php');
             exit;
         }
 
-        // Verificar sesión activa
+        // Verificar sesión
         if (!isset($_SESSION['usuario_id'])) {
-            header('Location: ../Views/Login/Login.php?error=Debes iniciar sesión');
+            header('Location: ../Views/Login/Login.php?error=Debes iniciar sesion');
             exit;
         }
 
         // Datos del formulario
         $nombre      = trim($_POST['nombre'] ?? '');
-        $descripcion = trim($_POST['descripcion'] ?? '');
+        $descripcion = trim($_POST['comentario'] ?? ''); // 👈 CORREGIDO
         $usuario_id  = $_SESSION['usuario_id'];
 
-        // Validaciones
+        // Validación
         if ($nombre === '' || $descripcion === '') {
             header('Location: ../Views/Resenas/Resena.php?error=Todos los campos son obligatorios');
             exit;
@@ -60,12 +60,12 @@ switch ($action) {
 
         // Guardar reseña
         if ($reviewModel->crear($data)) {
-            header('Location: ../Views/Resenas/Resena.php?success=Reseña enviada correctamente');
+            header('Location: ../Views/Resenas/Resena.php?success=Resena enviada correctamente');
             exit;
         }
 
         // Error al guardar
-        header('Location: ../Views/Resenas/Resena.php?error=Error al guardar la reseña');
+        header('Location: ../Views/Resenas/Resena.php?error=Error al guardar la resena');
         exit;
 
     // ===============================
@@ -73,10 +73,7 @@ switch ($action) {
     // ===============================
     case 'listar':
 
-        // Obtener todas las reseñas
         $resenas = $reviewModel->obtenerTodas();
-
-        // Enviar a la vista correspondiente
         require_once __DIR__ . '/../Views/Resenas/ListaResenas.php';
         exit;
 
