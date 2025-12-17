@@ -277,11 +277,14 @@ $reservasDisponibles = $reservaDisponibleModel->obtenerDisponibles();
 
     <div class="text-center mb-4">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <!--Botón para ir a la vista donde el usuario
             puede agregar una nueva reseña-->
         <a href="/ProyectoFinal_AmbienteWeb/Views/ModuloReseñas/Resenas.php"
            class="btn btn-primary btn-lg mr-2">
 =======
+=======
+>>>>>>> Stashed changes
         <a href="../Resenas/Resena.php" class="btn btn-primary btn-lg mr-2">
 >>>>>>> Stashed changes
             Agregar Reseña
@@ -295,11 +298,14 @@ $reservasDisponibles = $reservaDisponibleModel->obtenerDisponibles();
     <div class="row mt-3 mb-5">
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <?php
         /*Verifica si la variable $resenas existe
             y tiene contenido.
             Esta variable viene desde ReviewController*/
         ?>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         <?php if (!empty($resenas)): ?>
@@ -340,11 +346,19 @@ $reservasDisponibles = $reservaDisponibleModel->obtenerDisponibles();
 </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =========================================
  FIN SECCIÓN DE RESEÑAS
 =========================================
 -->
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 
 
 
