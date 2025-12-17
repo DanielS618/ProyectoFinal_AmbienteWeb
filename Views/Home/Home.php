@@ -118,7 +118,93 @@
     </div>
 
 
+   <!--  gallary Section  -->
+    <div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
+        <h2 class="section-title">Nuestro Menu</h2>
+    </div>
+    
+    <div class="gallary row">
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/1.jpeg" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/2.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/3.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/4.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/5.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/6.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/7.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/8.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/9.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/10.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/11.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="../assets/img/12.png" class="gallary-img">
+            <a href="#" class="gallary-overlay"><i class="gallary-icon ti-plus"></i></a>
+        </div>
+    
+    </div>
 
+    <!-- Modal para Platillos -->
+    <div id="modal-platillo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.55); backdrop-filter:blur(3px);
+    justify-content:center; align-items:center; padding:20px; z-index:9999;">
+
+        <div
+            style="background:white; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative;">
+
+            <button id="close-modal"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.4rem; cursor:pointer;">
+                ✖
+            </button>
+
+            <img id="modal-img" src="" alt="" style="width:100%; border-radius:8px; margin-bottom:15px;">
+            <h3 id="modal-title" style="color:#ee6c4d; margin-bottom:10px;"></h3>
+            <p id="modal-desc" style="color:#333;"></p>
+        </div>
+    </div>
     
 
     <!-- book a table Section  -->
@@ -286,7 +372,7 @@
 
     <!-- FoodHut js -->
     <script src="../assets/js/foodhut.js"></script>
-
+    <script src="../assets/js/modalMenu.js"></script>
 
 </body>
 
